@@ -1,0 +1,16 @@
+.logo {
+    transition: all 120ms;
+    display: block;
+    margin: 1rem;
+}
+
+.logo svg {
+    stroke: #AA0000;
+    height: 129.44px;
+    width: 80px;
+    z-index: 9;
+}
+
+.logo:hover {
+    transform: scale(1.2);
+}
