@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
       <div
         style={{
           maxWidth: `var(--size-content)`,
-          margin: `var(--size-gutter)`,
+          margin: `var(--size-gutter) auto`,
         }}
       >
         <main>{children}</main>
