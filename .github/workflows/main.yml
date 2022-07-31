@@ -34,7 +34,7 @@ jobs:
           mkdir -p ~/.ssh/
           echo "${{ secrets.FTP_PRIVATE_KEY }}" > ~/.ssh/deploy_key
           sudo chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H "${{ secrets.host }}" > ~/.ssh/known_hosts
+          ssh-keyscan -H "${{ secrets.FTP_HOST }}" > ~/.ssh/known_hosts
       
       - name: SFTP upload
         run: sftp -i ~/.ssh/deploy_key ${{ secrets.FTP_USER }}@${{ secrets.FTP_HOST }} <<< $'cd /public_html/www.acaruso.com.br/ \n put -r public/*'
