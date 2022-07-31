@@ -32,7 +32,7 @@ jobs:
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh/
-          echo "${{ secrets.ssh_private_key }}" > ~/.ssh/deploy_key
+          echo "${{ secrets.FTP_PRIVATE_KEY }}" > ~/.ssh/deploy_key
           sudo chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H "${{ secrets.host }}" > ~/.ssh/known_hosts
       
