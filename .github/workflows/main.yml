@@ -17,22 +17,16 @@ jobs:
         with:
           node-version: '16.15.0'
       
-      - name: Cache node modules
-        id: cache-npm
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
+      - name: Cache dependencies
+        id: cache
+        uses: actions/cache@v2
         with:
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+          path: ./node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
 
-      - name: Install Project Dependencies
-        if: ${{ steps.cache-npm.outputs.cache-hit == 'false' }}
-        run: npm ci
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
 
       - name: Install Gatsby CLI
         run: npm install -g gatsby-cli
