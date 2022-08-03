@@ -222,3 +222,7 @@ pre tt:before,
 pre tt:after {
   content: none;
 }
+
+:focus-visible {
+  outline-color: var(--color-primary);
+}

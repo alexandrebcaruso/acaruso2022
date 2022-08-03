@@ -2,6 +2,7 @@
     transition: all 120ms;
     display: block;
     margin: 1rem;
+    padding: 1rem;
 }
 
 .logo svg {
