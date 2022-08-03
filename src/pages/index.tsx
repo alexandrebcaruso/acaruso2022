@@ -1,8 +1,8 @@
 import * as React from "react"
 import Layout from "../components/layout/layout"
 import Seo from "../components/seo/seo"
-import { textCenter } from "../components/index.module.css"
 import Logo from "../components/logo/logo"
+import { textCenter } from "../styles/index.module.css"
 
 const IndexPage = () => (
   <Layout>
