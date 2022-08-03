@@ -31,7 +31,8 @@ jobs:
         run: npm list
 
       - name: Install dependencies
-        run: npm ci
+      - if: ${{ steps.cache-npm.outputs.cache-hit == 'false' }}
+        run: npm install
 
       - name: Install Gatsby CLI
         run: npm install -g gatsby-cli
