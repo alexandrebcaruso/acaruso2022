@@ -30,8 +30,8 @@ jobs:
         continue-on-error: true
         run: npm list
 
-      - name: Install dependencies
       - if: ${{ steps.cache-npm.outputs.cache-hit == 'false' }}
+        name: Install dependencies
         run: npm install
 
       - name: Install Gatsby CLI
