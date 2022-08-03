@@ -34,8 +34,11 @@ jobs:
         if: ${{ steps.cache-npm.outputs.cache-hit == 'false' }}
         run: npm ci
 
+      - name: Install Gatsby CLI
+        run: npm install -g gatsby-cli
+
       - name: Build
-        run: npm run build
+        run: gatsby build
       
       - name: Verify build
         run: ls -la public
