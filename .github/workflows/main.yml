@@ -17,12 +17,20 @@ jobs:
         with:
           node-version: '16.15.0'
       
+      - restore_cache:
+          key: v1-deps-{{ checksum "package-lock.json" }}
+      
       - name: Install Project Dependencies
         run: npm ci
-      
+            
       - name: Install Gatsby CLI
         run: npm install -g gatsby-cli
       
+      # save any changes to the cache
+      - save_cache:
+          key: v1-deps-{{ checksum "package-lock.json" }}
+          paths: 
+            - node_modules   
       - name: Build
         run: gatsby build
       
