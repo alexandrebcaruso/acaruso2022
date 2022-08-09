@@ -30,7 +30,7 @@ jobs:
         continue-on-error: true
         run: npm list
 
-        name: Install dependencies
+      - name: Install dependencies
         run: npm install
 
       - name: Install Gatsby CLI
